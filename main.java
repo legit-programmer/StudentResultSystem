@@ -1,4 +1,3 @@
-import java.lang.*;
 import java.util.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,13 +10,6 @@ class Student{
     String name="hi", dept;
     static int count = 0;
     String roll;
-
-    void getDetails(){
-        System.out.println("Enter student name, department and roll no.: ");
-        name = sc.nextLine();
-        dept = sc.nextLine();
-        roll = sc.nextLine();
-    }
 }
 
 class Result extends Student{
@@ -47,15 +39,15 @@ class Result extends Student{
 class mainGUI{    
     
     Result st[] = new Result[10];
-    // initializing using constructor  
+     
     void initRun() {  
    
-        JFrame f=new JFrame("Student Result System");//creating instance of JFrame  
+        JFrame f=new JFrame("Student Result System");
        
 
         JLabel mainHead = new JLabel("Student Result System");
         mainHead.setBounds(f.getWidth()/2+250, 100, 500, 30); 
-        mainHead.setFont(new Font("Arial", Font.PLAIN, 30)); //Creating an Arial Font Style with size 30 
+        mainHead.setFont(new Font("Arial", Font.PLAIN, 30));
 
 
         JButton chk=new JButton("Check Result");  
@@ -95,9 +87,9 @@ class mainGUI{
         f.add(mainHead);
         f.add(list1);
                   
-        f.setSize(800,800);//400 width and 500 height  
-        f.setLayout(null);//using no layout managers  
-        f.setVisible(true);//making the frame visible 
+        f.setSize(800,800);
+        f.setLayout(null);
+        f.setVisible(true);
       
     }    
 
@@ -193,14 +185,16 @@ class mainGUI{
 
         JFrame f = new JFrame("Result");
         JButton back = new JButton("Back");
+
         Font f11= new Font("Arial", Font.PLAIN, 30); 
+
         f.setSize(800, 800);
         f.setVisible(true);
         f.setLayout(null);
-        // JLabel resHead = new JLabel("Result");
+        
         
         st[index].layGrade();
-        // System.out.println(st[index].per);
+        
         String data[][] = {{"Name", st[index].name},
                             {"Roll No.", st[index].roll},
                             {"Marks 1",String.valueOf(st[index].m1) },
@@ -211,7 +205,7 @@ class mainGUI{
         String columns[] = {
             "Attribute","Value"
         };
-        // resHead.setBounds(50, 50, 100, 100);
+        
         JTable tbl = new JTable(data,columns);
         tbl.setBounds(70, 50, 600, 530);
         tbl.setFont(f11);
@@ -231,7 +225,7 @@ class mainGUI{
 
 class main{
     public static void main(String[] args){
-        // AWTExample1 f = new AWTExample1();    
+      
         new mainGUI().initRun();
 
     }
